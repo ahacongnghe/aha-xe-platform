@@ -76,7 +76,7 @@ function DetailPage() {
               </span>
             </div>
             <div className="flex gap-2 overflow-x-auto p-3">
-              {listing.images.map((img, i) => (
+              {listing.images.map((img: string, i: number) => (
                 <button
                   key={i}
                   onClick={() => setActive(i)}
@@ -188,7 +188,7 @@ function DetailPage() {
         <section className="mx-auto max-w-6xl px-4 pb-12">
           <h2 className="mb-4 text-xl font-bold">Tin tương tự</h2>
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
-            {related.map((l) => <ListingCard key={l.id} listing={l} />)}
+            {related.map((l: typeof listing) => <ListingCard key={l.id} listing={l} />)}
           </div>
         </section>
       )}
