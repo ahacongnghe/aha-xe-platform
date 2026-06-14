@@ -100,42 +100,21 @@ function HomePage() {
         <h2 className="mb-4 text-xl font-bold md:text-2xl">Khám phá theo danh mục</h2>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
           {categories.slice(0, 4).map((c) => (
-            <div key={c.slug} className="relative overflow-hidden rounded-2xl bg-brand-gradient p-5 shadow-sm">
+            <Link
+              key={c.slug}
+              to="/mua-ban/$category"
+              params={{ category: c.slug }}
+              className="relative overflow-hidden rounded-2xl bg-brand-gradient p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+            >
               <div className="text-4xl">{c.icon}</div>
               <div className="mt-6 font-bold">{c.label}</div>
               <div className="text-xs text-foreground/70">Xem hàng nghìn tin</div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
 
-      <footer className="mt-8 border-t bg-card">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-10 text-sm md:grid-cols-4">
-          <div>
-            <div className="mb-2 font-black">AHA<span className="text-brand-dark">Xe</span></div>
-            <p className="text-muted-foreground">Chợ mua bán xe cũ & mới nhanh, an toàn cho người Việt.</p>
-          </div>
-          <div>
-            <div className="mb-2 font-semibold">Danh mục</div>
-            <ul className="space-y-1 text-muted-foreground">
-              {categories.slice(0, 4).map((c) => <li key={c.slug}>{c.label}</li>)}
-            </ul>
-          </div>
-          <div>
-            <div className="mb-2 font-semibold">Hỗ trợ</div>
-            <ul className="space-y-1 text-muted-foreground">
-              <li>Trợ giúp</li><li>Quy chế hoạt động</li><li>Liên hệ</li>
-            </ul>
-          </div>
-          <div>
-            <div className="mb-2 font-semibold">Tải ứng dụng</div>
-            <p className="text-muted-foreground">AHA Xe trên App Store & Google Play.</p>
-          </div>
-        </div>
-        <div className="border-t py-4 text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} AHA Xe. All rights reserved.
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
