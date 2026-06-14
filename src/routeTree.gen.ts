@@ -9,9 +9,76 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TroGiupRouteImport } from './routes/tro-giup'
+import { Route as TinNhanRouteImport } from './routes/tin-nhan'
+import { Route as TinDaLuuRouteImport } from './routes/tin-da-luu'
+import { Route as TimKiemRouteImport } from './routes/tim-kiem'
+import { Route as ThongBaoRouteImport } from './routes/thong-bao'
+import { Route as TaiKhoanRouteImport } from './routes/tai-khoan'
+import { Route as QuyCheRouteImport } from './routes/quy-che'
+import { Route as LienHeRouteImport } from './routes/lien-he'
+import { Route as KhuVucRouteImport } from './routes/khu-vuc'
+import { Route as DangTinRouteImport } from './routes/dang-tin'
+import { Route as DangNhapRouteImport } from './routes/dang-nhap'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TinIdRouteImport } from './routes/tin.$id'
+import { Route as MuaBanCategoryRouteImport } from './routes/mua-ban.$category'
 
+const TroGiupRoute = TroGiupRouteImport.update({
+  id: '/tro-giup',
+  path: '/tro-giup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TinNhanRoute = TinNhanRouteImport.update({
+  id: '/tin-nhan',
+  path: '/tin-nhan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TinDaLuuRoute = TinDaLuuRouteImport.update({
+  id: '/tin-da-luu',
+  path: '/tin-da-luu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TimKiemRoute = TimKiemRouteImport.update({
+  id: '/tim-kiem',
+  path: '/tim-kiem',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThongBaoRoute = ThongBaoRouteImport.update({
+  id: '/thong-bao',
+  path: '/thong-bao',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TaiKhoanRoute = TaiKhoanRouteImport.update({
+  id: '/tai-khoan',
+  path: '/tai-khoan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuyCheRoute = QuyCheRouteImport.update({
+  id: '/quy-che',
+  path: '/quy-che',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LienHeRoute = LienHeRouteImport.update({
+  id: '/lien-he',
+  path: '/lien-he',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KhuVucRoute = KhuVucRouteImport.update({
+  id: '/khu-vuc',
+  path: '/khu-vuc',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DangTinRoute = DangTinRouteImport.update({
+  id: '/dang-tin',
+  path: '/dang-tin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DangNhapRoute = DangNhapRouteImport.update({
+  id: '/dang-nhap',
+  path: '/dang-nhap',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -22,35 +89,208 @@ const TinIdRoute = TinIdRouteImport.update({
   path: '/tin/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MuaBanCategoryRoute = MuaBanCategoryRouteImport.update({
+  id: '/mua-ban/$category',
+  path: '/mua-ban/$category',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dang-nhap': typeof DangNhapRoute
+  '/dang-tin': typeof DangTinRoute
+  '/khu-vuc': typeof KhuVucRoute
+  '/lien-he': typeof LienHeRoute
+  '/quy-che': typeof QuyCheRoute
+  '/tai-khoan': typeof TaiKhoanRoute
+  '/thong-bao': typeof ThongBaoRoute
+  '/tim-kiem': typeof TimKiemRoute
+  '/tin-da-luu': typeof TinDaLuuRoute
+  '/tin-nhan': typeof TinNhanRoute
+  '/tro-giup': typeof TroGiupRoute
+  '/mua-ban/$category': typeof MuaBanCategoryRoute
   '/tin/$id': typeof TinIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dang-nhap': typeof DangNhapRoute
+  '/dang-tin': typeof DangTinRoute
+  '/khu-vuc': typeof KhuVucRoute
+  '/lien-he': typeof LienHeRoute
+  '/quy-che': typeof QuyCheRoute
+  '/tai-khoan': typeof TaiKhoanRoute
+  '/thong-bao': typeof ThongBaoRoute
+  '/tim-kiem': typeof TimKiemRoute
+  '/tin-da-luu': typeof TinDaLuuRoute
+  '/tin-nhan': typeof TinNhanRoute
+  '/tro-giup': typeof TroGiupRoute
+  '/mua-ban/$category': typeof MuaBanCategoryRoute
   '/tin/$id': typeof TinIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dang-nhap': typeof DangNhapRoute
+  '/dang-tin': typeof DangTinRoute
+  '/khu-vuc': typeof KhuVucRoute
+  '/lien-he': typeof LienHeRoute
+  '/quy-che': typeof QuyCheRoute
+  '/tai-khoan': typeof TaiKhoanRoute
+  '/thong-bao': typeof ThongBaoRoute
+  '/tim-kiem': typeof TimKiemRoute
+  '/tin-da-luu': typeof TinDaLuuRoute
+  '/tin-nhan': typeof TinNhanRoute
+  '/tro-giup': typeof TroGiupRoute
+  '/mua-ban/$category': typeof MuaBanCategoryRoute
   '/tin/$id': typeof TinIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/tin/$id'
+  fullPaths:
+    | '/'
+    | '/dang-nhap'
+    | '/dang-tin'
+    | '/khu-vuc'
+    | '/lien-he'
+    | '/quy-che'
+    | '/tai-khoan'
+    | '/thong-bao'
+    | '/tim-kiem'
+    | '/tin-da-luu'
+    | '/tin-nhan'
+    | '/tro-giup'
+    | '/mua-ban/$category'
+    | '/tin/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/tin/$id'
-  id: '__root__' | '/' | '/tin/$id'
+  to:
+    | '/'
+    | '/dang-nhap'
+    | '/dang-tin'
+    | '/khu-vuc'
+    | '/lien-he'
+    | '/quy-che'
+    | '/tai-khoan'
+    | '/thong-bao'
+    | '/tim-kiem'
+    | '/tin-da-luu'
+    | '/tin-nhan'
+    | '/tro-giup'
+    | '/mua-ban/$category'
+    | '/tin/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/dang-nhap'
+    | '/dang-tin'
+    | '/khu-vuc'
+    | '/lien-he'
+    | '/quy-che'
+    | '/tai-khoan'
+    | '/thong-bao'
+    | '/tim-kiem'
+    | '/tin-da-luu'
+    | '/tin-nhan'
+    | '/tro-giup'
+    | '/mua-ban/$category'
+    | '/tin/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DangNhapRoute: typeof DangNhapRoute
+  DangTinRoute: typeof DangTinRoute
+  KhuVucRoute: typeof KhuVucRoute
+  LienHeRoute: typeof LienHeRoute
+  QuyCheRoute: typeof QuyCheRoute
+  TaiKhoanRoute: typeof TaiKhoanRoute
+  ThongBaoRoute: typeof ThongBaoRoute
+  TimKiemRoute: typeof TimKiemRoute
+  TinDaLuuRoute: typeof TinDaLuuRoute
+  TinNhanRoute: typeof TinNhanRoute
+  TroGiupRoute: typeof TroGiupRoute
+  MuaBanCategoryRoute: typeof MuaBanCategoryRoute
   TinIdRoute: typeof TinIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/tro-giup': {
+      id: '/tro-giup'
+      path: '/tro-giup'
+      fullPath: '/tro-giup'
+      preLoaderRoute: typeof TroGiupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tin-nhan': {
+      id: '/tin-nhan'
+      path: '/tin-nhan'
+      fullPath: '/tin-nhan'
+      preLoaderRoute: typeof TinNhanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tin-da-luu': {
+      id: '/tin-da-luu'
+      path: '/tin-da-luu'
+      fullPath: '/tin-da-luu'
+      preLoaderRoute: typeof TinDaLuuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tim-kiem': {
+      id: '/tim-kiem'
+      path: '/tim-kiem'
+      fullPath: '/tim-kiem'
+      preLoaderRoute: typeof TimKiemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/thong-bao': {
+      id: '/thong-bao'
+      path: '/thong-bao'
+      fullPath: '/thong-bao'
+      preLoaderRoute: typeof ThongBaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tai-khoan': {
+      id: '/tai-khoan'
+      path: '/tai-khoan'
+      fullPath: '/tai-khoan'
+      preLoaderRoute: typeof TaiKhoanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quy-che': {
+      id: '/quy-che'
+      path: '/quy-che'
+      fullPath: '/quy-che'
+      preLoaderRoute: typeof QuyCheRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lien-he': {
+      id: '/lien-he'
+      path: '/lien-he'
+      fullPath: '/lien-he'
+      preLoaderRoute: typeof LienHeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/khu-vuc': {
+      id: '/khu-vuc'
+      path: '/khu-vuc'
+      fullPath: '/khu-vuc'
+      preLoaderRoute: typeof KhuVucRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dang-tin': {
+      id: '/dang-tin'
+      path: '/dang-tin'
+      fullPath: '/dang-tin'
+      preLoaderRoute: typeof DangTinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dang-nhap': {
+      id: '/dang-nhap'
+      path: '/dang-nhap'
+      fullPath: '/dang-nhap'
+      preLoaderRoute: typeof DangNhapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -65,11 +305,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TinIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mua-ban/$category': {
+      id: '/mua-ban/$category'
+      path: '/mua-ban/$category'
+      fullPath: '/mua-ban/$category'
+      preLoaderRoute: typeof MuaBanCategoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DangNhapRoute: DangNhapRoute,
+  DangTinRoute: DangTinRoute,
+  KhuVucRoute: KhuVucRoute,
+  LienHeRoute: LienHeRoute,
+  QuyCheRoute: QuyCheRoute,
+  TaiKhoanRoute: TaiKhoanRoute,
+  ThongBaoRoute: ThongBaoRoute,
+  TimKiemRoute: TimKiemRoute,
+  TinDaLuuRoute: TinDaLuuRoute,
+  TinNhanRoute: TinNhanRoute,
+  TroGiupRoute: TroGiupRoute,
+  MuaBanCategoryRoute: MuaBanCategoryRoute,
   TinIdRoute: TinIdRoute,
 }
 export const routeTree = rootRouteImport

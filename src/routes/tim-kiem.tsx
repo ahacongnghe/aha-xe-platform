@@ -10,14 +10,8 @@ const schema = z.object({ q: z.string().optional() });
 
 export const Route = createFileRoute("/tim-kiem")({
   validateSearch: schema,
-  head: ({ search }) => ({
-    meta: [
-      {
-        title: search.q
-          ? `Tìm "${search.q}" trên AHA Xe`
-          : "Tìm kiếm xe trên AHA Xe",
-      },
-    ],
+  head: () => ({
+    meta: [{ title: "Tìm kiếm xe | AHA Xe" }],
   }),
   component: SearchPage,
 });
