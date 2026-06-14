@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronRight, MapPin, Search } from "lucide-react";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { ListingCard } from "@/components/ListingCard";
 import { categories, listings } from "@/lib/listings";
 
@@ -33,14 +34,15 @@ function HomePage() {
               Hàng ngàn tin đăng mới mỗi ngày, kiểm định bởi cộng đồng AHA.
             </p>
 
-            <div className="mt-6 flex flex-col gap-2 rounded-2xl bg-white p-2 shadow-lg md:flex-row md:items-center md:rounded-full md:p-1.5">
-              <button className="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium hover:bg-muted">
+            <form action="/tim-kiem" method="get" className="mt-6 flex flex-col gap-2 rounded-2xl bg-white p-2 shadow-lg md:flex-row md:items-center md:rounded-full md:p-1.5">
+              <Link to="/khu-vuc" className="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium hover:bg-muted">
                 <MapPin className="h-4 w-4" /> Tất cả khu vực
-              </button>
+              </Link>
               <div className="hidden h-6 w-px bg-border md:block" />
               <div className="relative flex-1">
                 <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                 <input
+                  name="q"
                   placeholder="Tìm xe cộ, hãng, dòng..."
                   className="h-10 w-full rounded-full bg-transparent pl-9 pr-3 text-sm outline-none"
                 />
@@ -48,7 +50,7 @@ function HomePage() {
               <button className="h-10 rounded-full bg-foreground px-6 text-sm font-bold text-background hover:opacity-90">
                 Tìm xe
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </section>
@@ -58,15 +60,17 @@ function HomePage() {
         <div className="rounded-2xl bg-card p-4 shadow-sm md:p-6">
           <div className="grid grid-cols-4 gap-3 md:grid-cols-8">
             {categories.map((c) => (
-              <button
+              <Link
                 key={c.slug}
+                to="/mua-ban/$category"
+                params={{ category: c.slug }}
                 className="group flex flex-col items-center gap-2 rounded-xl p-2 transition hover:bg-muted"
               >
                 <div className="grid h-14 w-14 place-items-center rounded-full bg-brand-gradient text-2xl shadow-sm transition group-hover:scale-105">
                   {c.icon}
                 </div>
                 <span className="text-center text-xs font-semibold leading-tight">{c.label}</span>
-              </button>
+              </Link>
             ))}
           </div>
         </div>
@@ -96,42 +100,21 @@ function HomePage() {
         <h2 className="mb-4 text-xl font-bold md:text-2xl">Khám phá theo danh mục</h2>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
           {categories.slice(0, 4).map((c) => (
-            <div key={c.slug} className="relative overflow-hidden rounded-2xl bg-brand-gradient p-5 shadow-sm">
+            <Link
+              key={c.slug}
+              to="/mua-ban/$category"
+              params={{ category: c.slug }}
+              className="relative overflow-hidden rounded-2xl bg-brand-gradient p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+            >
               <div className="text-4xl">{c.icon}</div>
               <div className="mt-6 font-bold">{c.label}</div>
               <div className="text-xs text-foreground/70">Xem hàng nghìn tin</div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
 
-      <footer className="mt-8 border-t bg-card">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-10 text-sm md:grid-cols-4">
-          <div>
-            <div className="mb-2 font-black">AHA<span className="text-brand-dark">Xe</span></div>
-            <p className="text-muted-foreground">Chợ mua bán xe cũ & mới nhanh, an toàn cho người Việt.</p>
-          </div>
-          <div>
-            <div className="mb-2 font-semibold">Danh mục</div>
-            <ul className="space-y-1 text-muted-foreground">
-              {categories.slice(0, 4).map((c) => <li key={c.slug}>{c.label}</li>)}
-            </ul>
-          </div>
-          <div>
-            <div className="mb-2 font-semibold">Hỗ trợ</div>
-            <ul className="space-y-1 text-muted-foreground">
-              <li>Trợ giúp</li><li>Quy chế hoạt động</li><li>Liên hệ</li>
-            </ul>
-          </div>
-          <div>
-            <div className="mb-2 font-semibold">Tải ứng dụng</div>
-            <p className="text-muted-foreground">AHA Xe trên App Store & Google Play.</p>
-          </div>
-        </div>
-        <div className="border-t py-4 text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} AHA Xe. All rights reserved.
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
