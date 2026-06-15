@@ -20,7 +20,6 @@ export const Route = createFileRoute("/")({
 function HomePage() {
   return (
     <div className="min-h-screen bg-background">
-      <TopBar />
       <Header stickyThreshold={300} />
 
       {/* Hero */}
