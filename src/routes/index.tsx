@@ -26,8 +26,7 @@ function HomePage() {
       <section className="relative overflow-hidden bg-brand-gradient">
         <div className="mx-auto max-w-7xl px-4 py-5 md:py-7">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold text-brand-dark">AHA Xe</p>
-            <h1 className="mt-1 text-xl font-black tracking-tight md:text-3xl">
+            <h1 className="text-xl font-black tracking-tight md:text-3xl">
               Xe giá tốt, chốt mua nhanh!
             </h1>
             <p className="mt-1 text-xs text-foreground/70 md:text-sm">
