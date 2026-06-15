@@ -93,5 +93,7 @@ export function Header({ stickyThreshold = 0 }: { stickyThreshold?: number }) {
         </Link>
       </div>
     </header>
+    </>
   );
 }
+
