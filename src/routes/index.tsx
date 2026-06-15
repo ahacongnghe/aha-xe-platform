@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronRight, MapPin, Search } from "lucide-react";
 import { Header } from "@/components/Header";
+import { TopBar } from "@/components/TopBar";
 import { Footer } from "@/components/Footer";
 import { ListingCard } from "@/components/ListingCard";
 import { categories, listings } from "@/lib/listings";
@@ -20,7 +21,8 @@ export const Route = createFileRoute("/")({
 function HomePage() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <TopBar />
+      <Header stickyThreshold={300} />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-brand-gradient">

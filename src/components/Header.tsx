@@ -1,9 +1,29 @@
 import { Link } from "@tanstack/react-router";
 import { Bell, Heart, MapPin, Menu, MessageCircle, Search, User } from "lucide-react";
+import { useEffect, useState } from "react";
 
-export function Header() {
+export function Header({ stickyThreshold = 0 }: { stickyThreshold?: number }) {
+  const [stuck, setStuck] = useState(stickyThreshold === 0);
+
+  useEffect(() => {
+    if (stickyThreshold === 0) {
+      setStuck(true);
+      return;
+    }
+    const onScroll = () => setStuck(window.scrollY > stickyThreshold);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [stickyThreshold]);
+
   return (
-    <header className="sticky top-0 z-40 bg-brand-gradient shadow-sm">
+    <>
+      {stuck && stickyThreshold > 0 && <div style={{ height: 60 }} aria-hidden />}
+      <header
+        className={`z-40 bg-brand-gradient shadow-sm ${
+          stuck ? "fixed left-0 right-0 top-0 animate-in slide-in-from-top duration-200" : "relative"
+        }`}
+      >
       <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3">
         <button className="rounded-md p-2 hover:bg-black/5 lg:hidden" aria-label="Menu">
           <Menu className="h-5 w-5" />
@@ -73,5 +93,7 @@ export function Header() {
         </Link>
       </div>
     </header>
+    </>
   );
 }
+
