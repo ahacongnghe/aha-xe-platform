@@ -3,8 +3,7 @@ import { Bell, Heart, Menu, MessageCircle, Search, User } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const brandLinks = [
-  { label: "Trang chủ", href: "#" },
-  { label: "Aha Sale", href: "#" },
+  { label: "Trang chủ Aha Sale", href: "#" },
   { label: "Aha Xe", href: "/" },
   { label: "Aha Bất động sản", href: "#" },
   { label: "Aha Công nghệ", href: "#" },
