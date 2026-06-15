@@ -24,30 +24,30 @@ function HomePage() {
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-brand-gradient">
-        <div className="mx-auto max-w-7xl px-4 py-10 md:py-16">
+        <div className="mx-auto max-w-7xl px-4 py-5 md:py-7">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-semibold text-brand-dark">AHA Xe</p>
-            <h1 className="mt-2 text-3xl font-black tracking-tight md:text-5xl">
+            <p className="text-xs font-semibold text-brand-dark">AHA Xe</p>
+            <h1 className="mt-1 text-xl font-black tracking-tight md:text-3xl">
               Xe giá tốt, chốt mua nhanh!
             </h1>
-            <p className="mt-3 text-sm text-foreground/70 md:text-base">
+            <p className="mt-1 text-xs text-foreground/70 md:text-sm">
               Hàng ngàn tin đăng mới mỗi ngày, kiểm định bởi cộng đồng AHA.
             </p>
 
-            <form action="/tim-kiem" method="get" className="mt-6 flex flex-col gap-2 rounded-2xl bg-white p-2 shadow-lg md:flex-row md:items-center md:rounded-full md:p-1.5">
-              <Link to="/khu-vuc" className="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium hover:bg-muted">
+            <form action="/tim-kiem" method="get" className="mt-4 flex flex-col gap-2 rounded-2xl bg-white p-1.5 shadow-lg md:flex-row md:items-center md:rounded-full">
+              <Link to="/khu-vuc" className="flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium hover:bg-muted">
                 <MapPin className="h-4 w-4" /> Tất cả khu vực
               </Link>
-              <div className="hidden h-6 w-px bg-border md:block" />
+              <div className="hidden h-5 w-px bg-border md:block" />
               <div className="relative flex-1">
                 <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                 <input
                   name="q"
                   placeholder="Tìm xe cộ, hãng, dòng..."
-                  className="h-10 w-full rounded-full bg-transparent pl-9 pr-3 text-sm outline-none"
+                  className="h-9 w-full rounded-full bg-transparent pl-9 pr-3 text-sm outline-none"
                 />
               </div>
-              <button className="h-10 rounded-full bg-foreground px-6 text-sm font-bold text-background hover:opacity-90">
+              <button className="h-9 rounded-full bg-foreground px-5 text-sm font-bold text-background hover:opacity-90">
                 Tìm xe
               </button>
             </form>
